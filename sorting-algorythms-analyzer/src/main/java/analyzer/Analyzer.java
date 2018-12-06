@@ -6,7 +6,7 @@ public class Analyzer {
 
     public long showExecutionTime(Sorter sorter, Integer[] array){
         long begin = System.nanoTime();
-        sorter.sort(array,0,array.length);
+        sorter.sort(array);
         long end = System.nanoTime();
 
         return end - begin;

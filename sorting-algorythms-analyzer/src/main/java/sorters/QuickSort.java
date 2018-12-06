@@ -5,7 +5,11 @@ import sorters.interfaces.Swapable;
 
 public class QuickSort  extends Sorter implements Swapable {
 
-    public void sort(Integer[] array,int left,int right){
+    public void sort(Integer[]array){
+        sort(array,0,array.length);
+    }
+
+    private void sort(Integer[] array,int left,int right){
         if(left >=right) return;
         int leftI = left;
         int rightI = right-1;

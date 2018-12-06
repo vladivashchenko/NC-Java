@@ -46,4 +46,11 @@ public abstract class MergeSort extends Sorter {
             k++;
         }
     }
+    protected Integer[] copyArray(Integer[]source, int begin,int end){
+        Integer[] array = new Integer[end-begin];
+        for(int i=begin;i<end;i++)
+            for(int j=0;j<array.length-1;j++)
+                array[j]=source[i];
+        return array;
+    }
 }

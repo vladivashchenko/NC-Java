@@ -5,9 +5,9 @@ import java.util.Collections;
 import java.util.Random;
 
 public class ArrayGenerator {
-    Random random = new Random();
+    private static Random random = new Random();
 
-    public Integer[] generateRandomArray(Integer min,Integer max,Integer length){
+    public static Integer[] generateRandomArray(Integer min,Integer max,Integer length){
         Integer randLimit = max-min+1;
         Integer[] resultArray = new Integer[length];
         for(Integer i=0;i<resultArray.length;i++)
@@ -16,7 +16,7 @@ public class ArrayGenerator {
         return resultArray;
     }
 
-    public Integer[] generateSortedArray(Integer min,Integer max,Integer length){
+    public static Integer[] generateSortedArray(Integer min,Integer max,Integer length){
 
         Integer[] resultArray = generateRandomArray(min,max,length);
         Arrays.sort(resultArray);
@@ -24,14 +24,14 @@ public class ArrayGenerator {
         return resultArray;
     }
 
-    public Integer[] generateSortedArrayEndingWithX(Integer min,Integer max,Integer length){
+    public static Integer[] generateSortedArrayEndingWithX(Integer min,Integer max,Integer length){
         Integer randLimit = max-min+1;
         Integer[] resultArray = generateSortedArray(min,max,length);
         resultArray[length-1] = random.nextInt(randLimit);
         return resultArray;
     }
 
-    public Integer[] generateReverseSortedArray(Integer min,Integer max,Integer length){
+    public static Integer[] generateReverseSortedArray(Integer min,Integer max,Integer length){
         Integer[] resultArray = generateSortedArray(min,max,length);
         Arrays.sort(resultArray, Collections.reverseOrder());
         return resultArray;

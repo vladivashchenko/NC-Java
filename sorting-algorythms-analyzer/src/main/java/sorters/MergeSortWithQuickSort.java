@@ -5,16 +5,22 @@ import sorters.abstractsorters.MergeSort;
 public class MergeSortWithQuickSort extends MergeSort {
     QuickSort qs = new QuickSort();
 
-    public void sort(Integer arr[], int l, int r)
+    public void sort(Integer arr[])
     {
-        if (l < r)
+        int left = 0;
+        int right = arr.length-1;
+        if (left < right)
         {
-            int m = (l+r)/2;
+            int middle = (left+right)/2;
 
-            qs.sort(arr, l, m);
-            qs.sort(arr, m+1, r);
+            Integer[] leftArray = copyArray(arr,left,middle);
+            Integer[] rightArray = copyArray(arr,middle,right);
 
-            merge(arr, l, m, r);
+
+            qs.sort(leftArray);
+            qs.sort(rightArray);
+            merge(arr, left, middle, right);
         }
     }
 }
+

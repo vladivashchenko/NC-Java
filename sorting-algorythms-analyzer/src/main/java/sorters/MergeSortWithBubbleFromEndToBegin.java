@@ -6,16 +6,21 @@ import sorters.abstractsorters.MergeSort;
 public class MergeSortWithBubbleFromEndToBegin extends MergeSort {
     BubbleSort bs = new BubbleSortFromEndToBegin();
 
-    public void sort(Integer arr[], int l, int r)
+    public void sort(Integer arr[])
     {
-        if (l < r)
+        int left = 0;
+        int right = arr.length-1;
+        if (left < right)
         {
-            int m = (l+r)/2;
+            int middle = (left+right)/2;
 
-            bs.sort(arr, l, m);
-            bs.sort(arr, m+1, r);
+            Integer[] leftArray = copyArray(arr,left,middle);
+            Integer[] rightArray = copyArray(arr,middle,right);
 
-            merge(arr, l, m, r);
+
+            bs.sort(leftArray);
+            bs.sort(rightArray);
+            merge(arr, left, middle, right);
         }
     }
 }

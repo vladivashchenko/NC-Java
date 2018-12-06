@@ -11,4 +11,19 @@ public abstract class BubbleSort extends Sorter implements Swapable {
         values[i] = values[j];
         values[j] = temp;
     }
+    public int getNext(int index){
+        index = index+1;
+        return index;
+    }
+
+    public int getFirst(int begin){
+        return begin;
+    }
+
+    public boolean isGreater(int begin,int end){
+        if(begin<end)
+            return true;
+        else
+            return false;
+    }
 }
