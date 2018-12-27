@@ -4,11 +4,11 @@ import sorters.abstractsorters.Sorter;
 
 public class QuickSort  extends Sorter {
 
-    public void sort(Integer[]array){
+    public void sort(int[]array){
         sort(array,0,array.length);
     }
 
-    private void sort(Integer[] array,int left,int right){
+    private void sort(int[] array,int left,int right){
         if(left >=right) return;
         int leftI = left;
         int rightI = right-1;
@@ -30,11 +30,15 @@ public class QuickSort  extends Sorter {
             sort(array,leftI,right);
     }
 
-    private void swap(Integer[]values,int i, int j) {
+    private void swap(int[]values,int i, int j) {
         if (i < 0 || j < 0 || i >= values.length || j >= values.length)
             throw new IndexOutOfBoundsException();
         int temp = values[i];
         values[i] = values[j];
         values[j] = temp;
+    }
+
+    public String toString() {
+        return this.getClass().getSimpleName();
     }
 }

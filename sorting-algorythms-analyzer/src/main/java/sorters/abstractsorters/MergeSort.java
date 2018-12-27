@@ -1,7 +1,7 @@
 package sorters.abstractsorters;
 
 public abstract class MergeSort extends Sorter {
-    protected void merge(Integer arr[], int l, int m, int r)
+    protected void merge(int arr[], int l, int m, int r)
     {
         int n1 = m - l + 1;
         int n2 = r - m;
@@ -46,8 +46,8 @@ public abstract class MergeSort extends Sorter {
             k++;
         }
     }
-    protected Integer[] copyArray(Integer[]source, int begin,int end){
-        Integer[] array = new Integer[end-begin];
+    protected int[] copyArray(int[]source, int begin,int end){
+        int[] array = new int[end-begin];
         for(int i=begin;i<end;i++)
             for(int j=0;j<array.length-1;j++)
                 array[j]=source[i];

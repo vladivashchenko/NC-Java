@@ -22,7 +22,7 @@ public abstract class BubbleSort extends Sorter{
         return last;
     }
 
-    protected void swap(Integer[]values,int i, int j) {
+    protected void swap(int []values,int i, int j) {
         if (i < 0 || j < 0 || i >= values.length || j >= values.length)
             throw new IndexOutOfBoundsException();
         int temp = values[i];
@@ -32,7 +32,7 @@ public abstract class BubbleSort extends Sorter{
 
     protected abstract int getNext(int index);
 
-    protected void sort(Integer array[],int first,int end)
+    protected void sort(int array[],int first,int end)
     {
         boolean sorted = true;
         setFirst(first);

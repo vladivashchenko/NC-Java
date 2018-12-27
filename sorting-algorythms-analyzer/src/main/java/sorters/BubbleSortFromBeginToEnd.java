@@ -8,7 +8,11 @@ public class BubbleSortFromBeginToEnd extends BubbleSort {
         index+=1;
         return index;
     }
-    public void sort(Integer[] array) {
+    public void sort(int[] array) {
         sort(array,1,array.length);
+    }
+
+    public String toString() {
+        return this.getClass().getSimpleName();
     }
 }

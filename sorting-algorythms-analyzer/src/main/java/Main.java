@@ -1,8 +1,4 @@
-import fillers.ArrayGenerator;
 import output.Output;
-import sorters.BubbleSortFromBeginToEnd;
-import sorters.BubbleSortFromEndToBegin;
-import sorters.abstractsorters.BubbleSort;
 
 public class Main {
 
