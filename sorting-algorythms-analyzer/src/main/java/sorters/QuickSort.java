@@ -1,9 +1,8 @@
 package sorters;
 
 import sorters.abstractsorters.Sorter;
-import sorters.interfaces.Swapable;
 
-public class QuickSort  extends Sorter implements Swapable {
+public class QuickSort  extends Sorter {
 
     public void sort(Integer[]array){
         sort(array,0,array.length);
@@ -31,7 +30,7 @@ public class QuickSort  extends Sorter implements Swapable {
             sort(array,leftI,right);
     }
 
-    public void swap(Integer[]values,int i, int j) {
+    private void swap(Integer[]values,int i, int j) {
         if (i < 0 || j < 0 || i >= values.length || j >= values.length)
             throw new IndexOutOfBoundsException();
         int temp = values[i];
