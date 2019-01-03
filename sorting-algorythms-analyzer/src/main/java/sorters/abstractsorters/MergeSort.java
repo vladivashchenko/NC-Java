@@ -1,6 +1,20 @@
 package sorters.abstractsorters;
-
+/**
+ * @author Vlad Ivashchenko
+ *
+ *<p>
+ *     Abstract merge sort class that extends {@link Sorter} class
+ *     and contains {@link #merge(int[], int, int, int)} method, usually used to merge sorted parts of array.
+ *</p>
+ */
 public abstract class MergeSort extends Sorter {
+    /**
+     * Merging method that usually used to merge sorted parts of array.
+     * @param arr Array which is needed to be sorted
+     * @param l - Left index
+     * @param r - Right index
+     * @param m - Middle index
+     */
     protected void merge(int arr[], int l, int m, int r)
     {
         int n1 = m - l + 1;
@@ -46,6 +60,12 @@ public abstract class MergeSort extends Sorter {
             k++;
         }
     }
+    /**
+     * Method that used to copy elements from one array to another.
+     * @param source Source array which elements must be copied
+     * @param begin - Begin index
+     * @param end - End index
+     */
     protected int[] copyArray(int[]source, int begin,int end){
         int[] array = new int[end-begin];
         for(int i=begin;i<end;i++)

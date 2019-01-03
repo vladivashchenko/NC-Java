@@ -8,11 +8,27 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Vlad Ivashchenko
+ *
+ *<p>
+ *     Analyzer class that used to analyze duration of sorting arrays by sorters.
+ *
+ *</p>
+ */
 public class Analyzer {
 
     Reflection reflection;
     ArrayGenerator arrayGenerator;
-
+    /**
+     * <p>
+     *     Method used to calculate duration of sorting.
+     * </p>
+     *
+     * @param sorter Object of certain sorter
+     * @param array Array to be sorted
+     * @return Time of sorting in nanoseconds
+     */
     public long showExecutionTime(Sorter sorter, int[] array){
         long begin = System.nanoTime();
         sorter.sort(array);
@@ -20,7 +36,23 @@ public class Analyzer {
 
         return end - begin;
     }
-
+    /**
+     * <p>
+     *     Method used to get all results of analyzing sorters.
+     * </p>
+     * <p>
+     *     Uses <b>Reflection</b> to find all methods in {@link ArrayGenerator} class, that are marked by
+     *     {@link fillers.Filler}.
+     *     <br>Uses <i>net.sourceforge.stripes</i> library to find all classes extending {@link Sorter}.
+     * </p>
+     *
+     * <p>
+     *     All founded fillers generate arrays that are further sorted by every sorting class, which is not abstract.
+     *     The method uses {@link #showExecutionTime(Sorter, int[])} method to calculate the duration of sort.
+     * </p>
+     * <br>
+     * @see <a href="https://mvnrepository.com/artifact/net.sourceforge.stripes/stripes">net.sourceforge.stripes</a>
+     */
     public List<String> analyze(){
         List<String> result = new ArrayList<String>();
         reflection = new Reflection();
