@@ -2,19 +2,40 @@ package sorters;
 
 import sorters.abstractsorters.BubbleSort;
 import sorters.abstractsorters.MergeSort;
-
+/**
+ * @author Vlad Ivashchenko
+ *
+ *<p>
+ *     Merge sort class that extends {@link MergeSort} class
+ *     and uses {@link BubbleSortFromBeginToEnd} class to sort merged parts of array.
+ *</p>
+ */
 public class MergeSortWithBubbleFromBeginToEnd extends MergeSort {
     BubbleSort bs = new BubbleSortFromBeginToEnd();
-
-    public void sort(Integer arr[], int l, int r)
-    {
-        if (l < r)
+    /**
+     * Realization of sorting array via merge sort algorithm with using a {@link BubbleSortFromBeginToEnd} class.
+     * <br>Uses {@link #merge(int[], int, int, int)} method from {@link MergeSort}
+     * @param arr Array which is needed to be sorted.
+     */
+    public void sort(int arr[]){
+        int left = 0;
+        int right = arr.length-1;
+        if (left < right)
         {
-            int m = (l+r)/2;
+            int middle = (left+right)/2;
 
-            bs.sort(arr, l, m);
-            bs.sort(arr, m+1, r);
-            merge(arr, l, m, r);
+            int[] leftArray = copyArray(arr,left,middle);
+            int[] rightArray = copyArray(arr,middle,right);
+
+            bs.sort(leftArray);
+            bs.sort(rightArray);
+            merge(arr, left, middle, right);
         }
+    }
+    /**
+     * Overriding of {@link #toString()} method
+     */
+    public String toString() {
+        return this.getClass().getSimpleName();
     }
 }

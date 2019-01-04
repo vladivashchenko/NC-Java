@@ -8,5 +8,13 @@
     <artifactId>sorting-algorythms-analyzer</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/net.sourceforge.stripes/stripes -->
+        <dependency>
+            <groupId>net.sourceforge.stripes</groupId>
+            <artifactId>stripes</artifactId>
+            <version>1.5</version>
+        </dependency>
+    </dependencies>
+
 </project>

@@ -1,4 +1,11 @@
 import output.Output;
+/**
+ * @author Vlad Ivashchenko
+ *
+ *<p>
+ *     Main class of program.
+ *</p>
+ */
 
 public class Main {
 

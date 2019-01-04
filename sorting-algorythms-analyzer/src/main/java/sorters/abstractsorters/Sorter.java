@@ -1,10 +1,15 @@
 package sorters.abstractsorters;
-
+/**
+ * @author Vlad Ivashchenko
+ *
+ * <p>
+ *      An abstract class containing only one abstract method {@link #sort(int[])}.
+ * </p>
+ */
 public  abstract class Sorter {
-    public abstract void sort(Integer[] array,int left,int right);
-    public void printArr(Integer[] arr){
-        for(Integer i=0;i<arr.length;i++)
-            System.out.print(arr[i]+" ");
-        System.out.println();
-    }
+    /**
+     * Should be implemented by sorting algorithms.
+     * @param array Array which is needed to be sorted.
+     */
+    public abstract void sort(int[] array);
 }
