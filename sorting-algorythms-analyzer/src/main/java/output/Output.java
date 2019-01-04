@@ -1,7 +1,6 @@
 package output;
 
 import analyzer.Analyzer;
-
 import java.util.*;
 /**
  * @author Vlad Ivashchenko

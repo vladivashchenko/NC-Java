@@ -1,6 +1,7 @@
 package sorters;
 
 import sorters.abstractsorters.Sorter;
+
 /**
  * @author Vlad Ivashchenko
  *
@@ -46,7 +47,6 @@ public class QuickSort  extends Sorter {
         if(leftI < right)
             sort(array,leftI,right);
     }
-
     /**
      * Method used to swap two elements in array.
      * @param values Array in which two elements are needed to be swapped.
@@ -60,6 +60,7 @@ public class QuickSort  extends Sorter {
         values[i] = values[j];
         values[j] = temp;
     }
+
     /**
      * Overriding of {@link #toString()} method
      */

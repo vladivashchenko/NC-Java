@@ -39,4 +39,3 @@ public class MergeSortWithQuickSort extends MergeSort {
         return this.getClass().getSimpleName();
     }
 }
-

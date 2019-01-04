@@ -6,6 +6,7 @@ import output.Output;
  *     Main class of program.
  *</p>
  */
+
 public class Main {
 
     public static void main(String[] args) {
