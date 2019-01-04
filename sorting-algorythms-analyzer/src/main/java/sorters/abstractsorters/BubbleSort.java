@@ -67,6 +67,7 @@ public abstract class BubbleSort extends Sorter{
      * Abstract method that should be implemented
      * <br>Used to get next index
      * @param index Index which is needed to be changed.
+     * @return int Next index
      */
     protected abstract int getNext(int index);
     /**

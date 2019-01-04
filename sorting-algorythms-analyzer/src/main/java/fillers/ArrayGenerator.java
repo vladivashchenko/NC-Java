@@ -1,11 +1,27 @@
 package fillers;
 
 import java.util.Random;
-
+/**
+ * @author Vlad Ivashchenko
+ *
+ *<p>
+ *     Class that used to generate array with defined length and max and min element.
+ *
+ *</p>
+ */
 public class ArrayGenerator {
     private static Random random = new Random();
     private static int RANDOM_LIMIT = 8;
-    
+    /**
+     * <p>
+     *     Method used to generate random array.
+     * </p>
+     *
+     * @param min Minimum element
+     * @param max Maximum element
+     * @param length Length of array
+     * @return array
+     */
     @Filler
     public static int[] generateRandomArray(int min,int max,int length){
         if(length<=0)
@@ -21,7 +37,16 @@ public class ArrayGenerator {
 
         return resultArray;
     }
-
+    /**
+     * <p>
+     *     Method used to generate sorted array.
+     * </p>
+     *
+     * @param min Minimum element
+     * @param max Maximum element
+     * @param length Length of array
+     * @return array
+     */
     @Filler
     public static int[] generateSortedArray(int min,int max,int length){
         if(length<=0)
@@ -43,7 +68,16 @@ public class ArrayGenerator {
         
         return resultArray;
     }
-
+    /**
+     * <p>
+     *     Method used to generate sorted array that ends with random element.
+     * </p>
+     *
+     * @param min Minimum element
+     * @param max Maximum element
+     * @param length Length of array
+     * @return array
+     */
     @Filler
     public static int[] generateSortedArrayEndingWithX(int min,int max,int length){
         if(length<=0)
@@ -56,7 +90,16 @@ public class ArrayGenerator {
         
         return resultArray;
     }
-
+    /**
+     * <p>
+     *     Method used to generate reverse sorted array.
+     * </p>
+     *
+     * @param min Minimum element
+     * @param max Maximum element
+     * @param length Length of array
+     * @return array
+     */
     @Filler
     public static int[] generateReverseSortedArray(int min,int max,int length){
         if(length<=0)

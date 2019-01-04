@@ -65,6 +65,7 @@ public abstract class MergeSort extends Sorter {
      * @param source Source array which elements must be copied
      * @param begin - Begin index
      * @param end - End index
+     * @return int[] Result array
      */
     protected int[] copyArray(int[]source, int begin,int end){
         int[] array = new int[end-begin];

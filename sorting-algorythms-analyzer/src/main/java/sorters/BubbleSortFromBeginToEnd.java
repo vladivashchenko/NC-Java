@@ -13,6 +13,7 @@ public class BubbleSortFromBeginToEnd extends BubbleSort {
     /**
      * Realization of {@link #getNext(int)} method from {@link BubbleSort}
      * @param index Index which is needed to be changed.
+     * @return int Next index
      */
     protected int getNext(int index) {
         index+=1;

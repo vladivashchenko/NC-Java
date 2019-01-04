@@ -12,7 +12,7 @@ import java.util.List;
  * @author Vlad Ivashchenko
  *
  *<p>
- *     Analyzer class that used to analyze duration of sorting arrays by sorters.
+ *     Analyzer class that used to analyze duration of sorting different types of arrays by each sorter
  *
  *</p>
  */
@@ -38,20 +38,20 @@ public class Analyzer {
     }
     /**
      * <p>
-     *     Method used to get all results of analyzing sorters.
+     *     Method used to get all results of analyzing.
      * </p>
      * <p>
      *     Uses <b>Reflection</b> to find all methods in {@link ArrayGenerator} class, that are marked by
      *     {@link fillers.Filler}.
-     *     <br>Uses <i>net.sourceforge.stripes</i> library to find all classes extending {@link Sorter}.
      * </p>
      *
      * <p>
-     *     All founded fillers generate arrays that are further sorted by every sorting class, which is not abstract.
-     *     The method uses {@link #showExecutionTime(Sorter, int[])} method to calculate the duration of sort.
+     *     All founded fillers generate arrays that are sorted by every sorting class, which is not abstract.
+     *     The method uses {@link #showExecutionTime(Sorter, int[])} method to calculate the duration of sorting.
      * </p>
      * <br>
      * @see <a href="https://mvnrepository.com/artifact/net.sourceforge.stripes/stripes">net.sourceforge.stripes</a>
+     * @return List of strings
      */
     public List<String> analyze(){
         List<String> result = new ArrayList<String>();
