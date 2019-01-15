@@ -8,7 +8,7 @@ import org.junit.rules.Timeout;
 import sorters.BubbleSortFromBeginToEnd;
 import sorters.abstractsorters.Sorter;
 
-import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class AnalyzerTest {
@@ -33,7 +33,7 @@ public class AnalyzerTest {
     }
     @Test
     public void analyzeTest(){
-        List<String> result = analyzer.analyze();
+        Map<String,Map<String,Map<Integer,Long>>> result = analyzer.analyze();
         Assert.assertNotNull(result);
     }
 }

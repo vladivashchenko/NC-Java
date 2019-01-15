@@ -1,4 +1,7 @@
 import output.Output;
+
+import java.io.IOException;
+
 /**
  * @author Vlad Ivashchenko
  *
@@ -11,6 +14,10 @@ public class Main {
 
     public static void main(String[] args) {
         Output output = new Output();
-        output.show();
+        try {
+            output.writeToExcel();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

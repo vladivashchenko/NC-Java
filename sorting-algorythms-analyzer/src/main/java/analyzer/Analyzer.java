@@ -3,10 +3,10 @@ package analyzer;
 import fillers.ArrayGenerator;
 import reflection.Reflection;
 import sorters.abstractsorters.Sorter;
-
 import java.lang.reflect.Method;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Vlad Ivashchenko
@@ -51,10 +51,11 @@ public class Analyzer {
      * </p>
      * <br>
      * @see <a href="https://mvnrepository.com/artifact/net.sourceforge.stripes/stripes">net.sourceforge.stripes</a>
-     * @return List of strings
+     * @return Map<String,Map<String,Map<Integer,Long>>> Map that has: String key - filler, Map value - sorting data
      */
-    public List<String> analyze(){
-        List<String> result = new ArrayList<String>();
+    public Map<String,Map<String,Map<Integer,Long>>> analyze(){
+        Map<String,Map<String,Map<Integer,Long>>> result =
+                new HashMap<String, Map<String, Map<Integer, Long>>>();
         reflection = new Reflection();
         arrayGenerator = new ArrayGenerator();
         int[]array;
@@ -62,16 +63,19 @@ public class Analyzer {
         List<Sorter> sorters = reflection.getAllSorters();
         List<Method> fillers = reflection.getAnnotatedMethods(arrayGenerator.getClass());
 
-        for(int i=0;i<sorters.size();i++){
-            for(int j=0;j<fillers.size();j++){
-                for(int length = 100;length<=10000;length*=10){
-                    array = reflection.invoke(fillers.get(j),length);
-                    result.add(sorters.get(i).toString()+" : "+fillers.get(j).getName()+ " : "
-                            +showExecutionTime(sorters.get(i),array));
+        for(Method filler:fillers){
+            Map<String,Map<Integer,Long>> data =
+                    new HashMap<String, Map<Integer, Long>>();
+            for(Sorter sorter:sorters){
+                Map<Integer,Long> sorterDurations = new HashMap<Integer, Long>();
+                for(int length = 10;length<=100000;length=length*10){
+                    array= reflection.invoke(filler,length);
+                    sorterDurations.put(length,showExecutionTime(sorter,array));
+                    data.put(sorter.toString(),sorterDurations);
+                    result.put(filler.getName(),data);
                 }
             }
         }
-
         return result;
     }
 }
