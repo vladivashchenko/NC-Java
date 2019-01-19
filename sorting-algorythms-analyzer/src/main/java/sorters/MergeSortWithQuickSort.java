@@ -1,6 +1,8 @@
 package sorters;
 
 import sorters.abstractsorters.MergeSort;
+import sorters.abstractsorters.Sorter;
+
 /**
  * @author Vlad Ivashchenko
  *
@@ -13,24 +15,12 @@ public class MergeSortWithQuickSort extends MergeSort {
     QuickSort qs = new QuickSort();
     /**
      * Realization of sorting array via merge sort algorithm with using a {@link QuickSort} class.
-     * <br>Uses {@link #merge(int[], int, int, int)} method from {@link MergeSort}
+     * <br>Uses {@link #parallelMergeSort(int[], int, Sorter)}  method from {@link MergeSort}
      * @param arr Array which is needed to be sorted.
      */
-    public void sort(int arr[]){
-        int left = 0;
-        int right = arr.length-1;
-
-        if (left < right)
-        {
-            int middle = (left+right)/2;
-
-            int[] leftArray = copyArray(arr,left,middle);
-            int[] rightArray = copyArray(arr,middle,right);
-
-            qs.sort(leftArray);
-            qs.sort(rightArray);
-            merge(arr, left, middle, right);
-        }
+    public void sort(int[] arr) {
+        final int cores = Runtime.getRuntime().availableProcessors();
+        parallelMergeSort(arr, cores,qs);
     }
     /**
      * Overriding of {@link #toString()} method
